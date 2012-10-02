@@ -31,8 +31,10 @@ module Guard
     def run_on_change(paths)
       begin
         if @options[:compile]
-          com = "handlebars #{@options[:input]} #{@options[:flags]} -f #{@options[:output]}"
-          result = `#{com}`
+          if File.exists? options[:input]
+            com = "handlebars #{@options[:input]} #{@options[:flags]} -f #{@options[:output]}"
+            result = `#{com}`
+          end
         else
           paths.each do |file|
             output_file = nil
