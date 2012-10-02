@@ -1,3 +1,1 @@
-guard 'handlebars' do
-  watch(/^.+(\.html)?(\.handlebars)$/)
-end
+guard 'handlebars', :input => 'a/j/templates', :output => 'a/j/templates.js', :min => true, :compile => true
